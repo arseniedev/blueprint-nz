@@ -1,0 +1,25 @@
+---
+import { SITE_TITLE } from '../consts';
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+---
+
+<BaseLayout title="Home">
+	<!-- <Fragment slot="header-right">
+		<nav><a href="/patient-space">patient</a></nav>
+	</Fragment> -->
+	<img class="placeholder-card-icon" src="src/assets/images/pages/placeholder-cards.png">
+	<h1 class="website-title">
+		{SITE_TITLE.toLocaleUpperCase()}
+	</h1>
+	<a href= "/family">family </a>
+	<a href= "/patient-space">patient </a>
+	<a href= "/researcher">researcher </a>
+</BaseLayout>
+
+
+<style>
+	.placeholder-card-icon {
+		height: 8vh;
+	}
+</style>

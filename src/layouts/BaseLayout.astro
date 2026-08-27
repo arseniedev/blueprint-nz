@@ -4,32 +4,40 @@ import Footer from '../components/astro/Footer.astro'
 
 import '../styles/global.css';
 
+import { getPageLabel } from '../utils/pageMeta';
+const label = getPageLabel(Astro.url.pathname);
 interface Props {
   title: string;
   description?: string;
 }
 
-// const { title, description = 'Prostate cancer information and support' } = Astro.props;
+// const label = `${pageLabels[path] ?? SITE_TITLE}`;
+
+const { title = label, description = 'Prostate cancer information and support' } = Astro.props;
+// const showLeft = headerVariant !== "home";
+const isHome = Astro.url.pathname === '/home' || Astro.url.pathname === '/';
+const showLeft = !isHome;
 ---
 <!doctype html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <!-- <meta name="description" content={description} />
-    <title>{title} | Pamana</title> -->
+    <meta name="description" content={description} />
+    <title>{title} | Pamana</title>
+    <slot name="head" />
   </head>
   <body class="bg-neutral-50 text-neutral-900 font-sans antialiased">
 
-    <!-- header -->
-		<Header />
-    <!-- <nav>Prostate Cancer Info Site</nav> -->
+		<Header showLeft={showLeft}>
+			<Fragment slot="left"><slot name="header-left" /></Fragment>
+			<Fragment slot="right"><slot name="header-right" /></Fragment>
+		</Header>
+
     <main>
       <slot />
     </main>
 
 		<Footer />
-
-    <!-- footer -->
   </body>
 </html>

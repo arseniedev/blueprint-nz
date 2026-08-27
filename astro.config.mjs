@@ -16,19 +16,19 @@ export default defineConfig({
   fonts: [
       {
           provider: fontProviders.local(),
-          name: 'Atkinson',
-          cssVariable: '--font-atkinson',
+          name: 'Gotham',
+          cssVariable: '--font-gotham',
           fallbacks: ['sans-serif'],
           options: {
               variants: [
                   {
-                      src: ['./src/assets/fonts/atkinson-regular.woff'],
+                      src: ['./src/assets/fonts/GothamSSm/gothamcondssm_black.otf'],
                       weight: 400,
                       style: 'normal',
                       display: 'swap',
                   },
                   {
-                      src: ['./src/assets/fonts/atkinson-bold.woff'],
+                      src: ['./src/assets/fonts/GothamSSm/gothamxnarrssm_bold.otf'],
                       weight: 700,
                       style: 'normal',
                       display: 'swap',
