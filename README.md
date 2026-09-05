@@ -17,10 +17,9 @@
 >  A community-focused website remake for Prostate Cancer NZ, as part of the **BCDE311 - Software Development Project** course. `Pamana | Aotearoa`, formerly BlueprintNZ, is an informational and resource platform designed to support individuals affected by prostate cancer in New Zealand. The site aims to provide reliable guidance, raise awareness, and connect users with helpful resources and support networks.
 This project demonstrates full-stack development using modern web technologies, accessibility best practices, and responsive design principles.
 
----
-## Demo
 [![Live Demo](https://img.shields.io/badge/Netlify-Live%20Demo%20-181717?style=for-the-badge&logo=netlify&labelColor=080182)](https://blueprintnz.netlify.app/)
 
+---
 ## Wiki [→](https://github.com/arzenikos/pamana/wiki)
 - **[Iterations](https://github.com/arzenikos/pamana/wiki/Development-Iterations)**
 - **[Figma Prototype](https://www.figma.com/design/fCs420IxnIJFJ5a36LEQdp/DesignThinkingProjects--Copy-?node-id=2012-192&t=OKl2kRrYhCOtsRTu-1)**
@@ -38,7 +37,8 @@ This project demonstrates full-stack development using modern web technologies, 
 
 
 ## Project Structure
-```
+<!-- START_STRUCTURE -->
+```text
 Pamana/
 ├─ public/           # Static assets (images, icons)
 ├─ src/
@@ -50,7 +50,7 @@ Pamana/
 ├─ tsconfig.json
 └─ astro.config.mjs
 ```
-
+<!-- END_STRUCTURE -->
 ---
 ## Installation
 1. Clone the repository
