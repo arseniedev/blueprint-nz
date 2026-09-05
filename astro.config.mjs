@@ -1,33 +1,67 @@
-import { defineConfig } from 'astro/config';
-import netlify from '@astrojs/netlify';
+import { defineConfig, fontProviders } from 'astro/config';
 import react from '@astrojs/react';
-// import tailwind from "@astrojs/tailwind";
 import tailwindcss from '@tailwindcss/vite';
-// import { viteStaticCopy } from 'vite-plugin-static-copy';
 import icon from 'astro-icon';
+import netlify from '@astrojs/netlify';
 // https://astro.build/config
+
 export default defineConfig({
-    vite: {
-        plugins: [
-            tailwindcss(),
-            // viteStaticCopy({
-            //     targets: [{
-            //         src:'./src/**/*', // copy all files under src
-            //         dest: './' // place at root of dist/
-            //     }]
-            // })
-        ]
-    },
-    integrations: [react(),
-        icon(),
-        // tailwind()
-    ],
+    adapter: netlify(),
     devToolbar: {
         enabled: false
     },
-    adapter: netlify(),
-    publicDir: './public',
+    fonts: [
+        {
+            provider: fontProviders.local(),
+            name: 'Gotham',
+            cssVariable: '--font-gotham',
+            fallbacks: ['sans-serif'],
+            options: {
+                variants: [
+                    {
+                        src: ['./src/assets/fonts/GothamSSm/gothamcondssm_black.otf'],
+                        weight: 400,
+                        style: 'normal',
+                        display: 'swap',
+                    },
+                    {
+                        src: ['./src/assets/fonts/GothamSSm/gothamxnarrssm_bold.otf'],
+                        weight: 700,
+                        style: 'bold',
+                        display: 'swap',
+                    },
+                ],
+            },
+        },
+        {
+            provider: fontProviders.local(),
+            name: 'Atkinsons',
+            cssVariable: '--font-atkinsons',
+            fallbacks: ['sans-serif'],
+            options: {
+                variants: [
+                    {
+                        src: ['./src/assets/fonts/atkinsons/atkinson-bold.woff'],
+                        weight: 500,
+                        style: 'bold',
+                        display: 'swap',
+                    },
+                    {
+                        src: ['./src/assets/fonts/atkinsons/atkinson-regular.woff'],
+                        weight: 200,
+                        style: 'normal',
+                        display: 'swap',
+                    }
+                ],
+            },
+        }
+    ],
+    integrations: [
+        react(),
+        icon(),
+    ],
     outDir: './dist',
+    publicDir: './public',
     redirects: {
         '/stage-0/what-you-need-to-know-early': '/patient/stage-0/what-you-need-to-know-early',
         '/stage-0/small-choices-big-impact': '/patient/stage-0/small-choices-big-impact',
@@ -44,5 +78,16 @@ export default defineConfig({
         '/stage-4/the-care-that-fits-you': '/patient/stage-4/the-care-that-fits-you',
         '/stage-4/support-for-the-day-to-day': '/patient/stage-4/support-for-the-day-to-day',
         '/stage-4/honouring-your-life': '/patient/stage-4/honouring-your-life',
-    }
+    },
+    vite: {
+        plugins: [
+            tailwindcss(),
+            // viteStaticCopy({
+            //     targets: [{
+            //         src:'./src/**/*', // copy all files under src
+            //         dest: './' // place at root of dist/
+            //     }]
+            // })
+        ]
+    },
 });
