@@ -3,7 +3,6 @@ import Layout from '../layouts/Layout.astro';
 import SplashScreen from '../components/chrome/SplashScreen.astro';
 import BrandMark from '../components/brand/BrandMark.astro';
 import PathCard from '../components/cards/PathCard.astro';
-import LineIcon from '../components/ui/LineIcon.astro';
 import { brand, landing } from '../content/ui/site';
 ---
 
@@ -21,10 +20,7 @@ import { brand, landing } from '../content/ui/site';
         <PathCard href={path.href} title={path.title} body={path.body} iconLabel={path.iconLabel} />
       ))}
     </div>
-    <button class="ai-prompt" type="button" data-open-chat>
-      <LineIcon name="robot" />
-      <span>{landing.aiPrompt}</span>
-    </button>
+    
   </section>
 </Layout>
 
