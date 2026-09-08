@@ -1,5 +1,6 @@
 ---
-import PlaceholderMedia from '../media/PlaceholderMedia.astro';
+import ArticleThumbnail from '../media/ArticleThumbnail.astro';
+// import PlaceholderMedia from '../media/PlaceholderMedia.astro';
 
 interface Props {
   href: string;
@@ -12,7 +13,7 @@ const { href, label, iconLabel, selected = false } = Astro.props;
 ---
 
 <a class:list={'category-card'} href={href}>
-  <PlaceholderMedia label={iconLabel} />
+  <ArticleThumbnail src="placeholder-cards.png" alt={iconLabel} />
   <span>{label}</span>
 </a>
 
@@ -21,6 +22,7 @@ const { href, label, iconLabel, selected = false } = Astro.props;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    align-items: center;
     min-height: 170px;
     padding: 0.9rem;
     border: 1px solid var(--color-border);
@@ -39,7 +41,7 @@ const { href, label, iconLabel, selected = false } = Astro.props;
   span {
     display: block;
     margin-top: 0.6rem;
-    font-size: 0.92rem;
+    font-size: 1.2rem;
     line-height: 1.35;
   }
   .category-card:hover {

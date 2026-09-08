@@ -1,4 +1,6 @@
 ---
+// import { resolveAsset } from '../../utils/resolveAssets';
+
 interface Props {
   label: string;
 }
@@ -7,6 +9,7 @@ const { label } = Astro.props;
 ---
 
 <div class="placeholder-media" role="img" aria-label={label}>
+  <!-- <img src={resolveAsset(src)} alt={label} class="article-thumbnail" /> -->
   <span>{label}</span>
 </div>
 

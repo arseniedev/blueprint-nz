@@ -26,24 +26,27 @@ export const landing = {
   paths: [
     {
       id: 'research',
-      href: '/researcher',
+      href: '/researcher-hub',
       title: 'I am looking for clinical data or research',
       body: 'For researchers, clinicians, and students seeking peer-reviewed journals, news articles, and statistics.',
-      iconLabel: 'Placeholder: microscope icon',
+      thumbnail: 'path-cards/path-researcher-hub.png',
+      iconLabel: 'Researcher hub',
     },
     {
       id: 'patient',
-      href: '/patient',
+      href: '/patient-space',
       title: 'I am navigating my own diagnosis',
       body: 'For those looking to understand prostate cancer, explore treatment choices, or manage daily health.',
-      iconLabel: 'Placeholder: prostate anatomy icon',
+      thumbnail: 'path-cards/path-patient-space.png',
+      iconLabel: 'Patient space',
     },
     {
       id: 'whanau',
-      href: '/caregiver',
+      href: '/family-support',
       title: 'I am supporting a loved one',
       body: 'For whānau, partners, and friends looking for guides on caring, coordinating treatments, & finding support.',
-      iconLabel: 'Placeholder: family icon',
+      thumbnail: 'path-cards/path-family-corner.png',
+      iconLabel: 'Family corner',
     },
   ],
 };
