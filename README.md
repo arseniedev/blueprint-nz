@@ -18,7 +18,7 @@
 > A user-focused website remake for Prostate Cancer NZ, as part of the **BCDE311 - Software Development Project** course. `Prostate Care | Aotearoa`, formerly BlueprintNZ, is an informational and resource platform designed to support individuals affected by prostate cancer in New Zealand. The site aims to provide reliable guidance, raise awareness, and connect users with helpful resources and support networks.
 This project demonstrates full-stack development using modern web technologies, accessibility best practices, and responsive design principles.
 
-[![Live Demo](https://img.shields.io/badge/Netlify-Live%20Demo%20-181717?style=for-the-badge&logo=netlify&labelColor=080182)](https://blueprintnz.netlify.app/)
+[![Live Demo](https://img.shields.io/badge/Netlify-Live%20Demo%20-181717?style=for-the-badge&logo=netlify&labelColor=080182)](https://prostatecarenz.netlify.app/)
 
 ---
 ## Wiki [→](https://github.com/arzenikos/prostate-care/wiki)
