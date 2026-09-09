@@ -21,12 +21,12 @@ This project demonstrates full-stack development using modern web technologies, 
 [![Live Demo](https://img.shields.io/badge/Netlify-Live%20Demo%20-181717?style=for-the-badge&logo=netlify&labelColor=080182)](https://blueprintnz.netlify.app/)
 
 ---
-## Wiki [→](https://github.com/arzenikos/pamana/wiki)
-- **[Iterations](https://github.com/arzenikos/pamana/wiki/Development-Iterations)**
+## Wiki [→](https://github.com/arzenikos/prostate-care/wiki)
+- **[Iterations](https://github.com/arzenikos/prostate-care/wiki/Development-Iterations)**
 - **[Figma Prototype](https://www.figma.com/design/fCs420IxnIJFJ5a36LEQdp/DesignThinkingProjects--Copy-?node-id=2012-192&t=OKl2kRrYhCOtsRTu-1)**
-- **[PDF Wireframe Diagram](https://github.com/arzenikos/pamana/tree/docs/assets/diagrams/pamana-diagram.pdf)**
-- **[Emerge Poster](https://github.com/arzenikos/pamana/tree/docs/assets/documents/emerge-poster.pdf)**
-- **[Short Paper](https://github.com/arzenikos/pamana/tree/docs/assets/documents/citrenz-short-paper.pdf)**
+- **[PDF Wireframe Diagram](https://github.com/arzenikos/prostate-care/tree/docs/assets/diagrams/pamana-diagram.pdf)**
+- **[Emerge Poster](https://github.com/arzenikos/prostate-care/tree/docs/assets/documents/emerge-poster.pdf)**
+- **[Short Paper](https://github.com/arzenikos/prostate-care/tree/docs/assets/documents/citrenz-short-paper.pdf)**
 
 ---
 ## Features

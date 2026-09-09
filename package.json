@@ -1,7 +1,7 @@
 {
-  "name": "astro-netlify-platform-starter",
+  "name": "prostate-cancer-astro",
   "type": "module",
-  "version": "0.3.0",
+  "version": "0.5.1",
   "scripts": {
     "dev": "astro dev",
     "start": "astro dev",
@@ -9,7 +9,6 @@
     "preview": "astro preview",
     "astro": "astro",
     "close": "rm -rf node_modules && rm -rf package-lock.json",
-    "edit-netlify-config": "code C:\\Users\\arsenie-sarmiento\\AppData\\Roaming\\netlify\\Config\\config.json",
     "publish": "git add . && git commit -m 'Update' && git push"
   },
   "dependencies": {
