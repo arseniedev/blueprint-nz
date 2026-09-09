@@ -2,7 +2,7 @@
 import { getCollection, render } from 'astro:content';
 import type { CollectionEntry } from 'astro:content';
 import ArticleLayout from '../../../layouts/ArticleLayout.astro';
-import { headingsFromMarkdown } from '../../../lib/markdown';
+import { tocFromHeadings } from '../../../lib/markdown';
 
 export async function getStaticPaths() {
   const articles = await getCollection('patientArticles');
@@ -22,7 +22,7 @@ interface Props {
 const { article } = Astro.props;
 const { Content } = await render(article);
 const heading = article.data.heading ?? article.data.title;
-const toc = headingsFromMarkdown(article.body);
+const toc = tocFromHeadings(article.body);
 ---
 
 <ArticleLayout

@@ -57,7 +57,7 @@ export const hubs = {
     subtitle: 'Prostate Cancer Support Website',
     breadcrumbs: [
       { label: 'Home', href: '/' },
-      { label: 'Navigating Your Diagnosis', href: '/patient' },
+      { label: 'Navigating Your Diagnosis', href: '/patient-hub' },
     ],
     heading: "Every journey is different. Let's find the information you need.",
     intro:
