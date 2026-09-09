@@ -4,7 +4,7 @@ import HubHero from '../../components/hero/HubHero.astro';
 import LineIcon from '../../components/ui/LineIcon.astro';
 import PlaceholderMedia from '../../components/media/PlaceholderMedia.astro';
 import { hubs } from '../../content/ui/site';
-import { researchFeed } from '../../content/ui/patient-path';
+import { researchFeed } from '../../content/ui/article-paths';
 
 const copy = hubs.research;
 ---
@@ -35,7 +35,12 @@ const copy = hubs.research;
       <p class="latest">Latest</p>
       <article>
         <div class="feed__title">
-          <h3><a href={researchFeed.href}>{researchFeed.title}</a></h3>
+          <h3>
+
+            <a href=`researcher-hub/${researchFeed.href}`>
+              {researchFeed.title}
+            </a>
+          </h3>
           <LineIcon name="bookmark" />
         </div>
         <p class="meta">{researchFeed.date} • {researchFeed.author} • {researchFeed.affiliation}</p>

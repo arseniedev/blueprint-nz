@@ -3,7 +3,7 @@ import Layout from '../../layouts/Layout.astro';
 import HubHero from '../../components/hero/HubHero.astro';
 import CategoryCard from '../../components/cards/CategoryCard.astro';
 import { hubs } from '../../content/ui/site';
-import { whanauCards } from '../../content/ui/patient-path';
+import { whanauCards } from '../../content/ui/article-paths';
 
 const copy = hubs.whanau;
 ---
@@ -20,7 +20,11 @@ const copy = hubs.whanau;
     <h2>{copy.sectionTitle}</h2>
     <div class="whanau__grid">
       {whanauCards.map((card) => (
-        <CategoryCard href={card.href} label={card.label} iconLabel={card.iconLabel} />
+        <CategoryCard 
+          href=`/family-support/${card.href}`
+          label={card.label} 
+          iconLabel={card.iconLabel} 
+        />
       ))}
     </div>
   </section>

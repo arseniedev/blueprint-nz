@@ -1,6 +1,6 @@
 ---
 import CategoryCard from '../cards/CategoryCard.astro';
-import type { PathSection } from '../../content/ui/patient-path';
+import type { PathSection } from '../../content/ui/article-paths';
 
 interface Props {
   sections: PathSection[];
@@ -24,7 +24,7 @@ const { sections, openId = '' } = Astro.props;
             <div class="topic-grid">
               {group.cards.map((card, index) => (
                 <CategoryCard
-                  href={card.href}
+                  href=`/patient-space/${card.href}`
                   label={card.label}
                   iconLabel={card.iconLabel}
                   selected={section.id === 'stage-1' && index === group.cards.length - 1}

@@ -1,7 +1,7 @@
 ---
-import SimpleArticle from '../../../components/article/SimpleArticle.astro';
+import SimpleArticle from '../../components/article/SimpleArticle.astro';
 // import { content } from '../../../content/articles/patient/stage-0/what-you-need-to-know-early.md';
-import { content } from '../../../content/users/c-stage-0.ts';
+import { content } from '../../content/users/c-stage-0.ts';
 
 
 const heading = content['stage-0'].heading1.title;
@@ -23,9 +23,9 @@ const main = content['stage-0'].heading1.main;
     <h2>{main.overview.subheading}</h2>
     <p>{main.overview.body[0]}</p>
     <p>{main.overview.body[1]}</p>
-    <ul>
+    <!-- <ul>
       {main.overview.body[2].items.map((item) => <li>{item}</li>)}
-    </ul>
+    </ul> -->
   </section>
   <section id="what-it-is">
     <h2>{main.whatItIs.subheading}</h2>
