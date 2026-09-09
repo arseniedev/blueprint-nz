@@ -44,6 +44,9 @@ This project demonstrates full-stack development using modern web technologies, 
 ├── README.md
 ├── astro.config.mjs
 ├── package.json
+├── pnpm-workspace.yaml
+├── public
+│   └── assets
 ├── renovate.json
 ├── sonar-project.properties
 ├── src
@@ -59,7 +62,7 @@ This project demonstrates full-stack development using modern web technologies, 
 ├── tailwind.config.ts
 └── tsconfig.json
 
-9 directories, 9 files
+11 directories, 10 files
 ```
 <!-- END_STRUCTURE -->
 ---
