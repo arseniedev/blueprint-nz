@@ -40,16 +40,27 @@ This project demonstrates full-stack development using modern web technologies, 
 ## Project Structure
 <!-- START_STRUCTURE -->
 ```text
-prostate-care/
-├─ public/           # Static assets (images, icons)
-├─ src/
-│  ├─ components/    # Reusable UI components
-│  ├─ pages/         # Route-based pages
-│  ├─ layouts/       # Page layouts
-│  └─ styles/        # Global and component styles
-├─ package.json
-├─ tsconfig.json
-└─ astro.config.mjs
+.
+├── README.md
+├── astro.config.mjs
+├── package.json
+├── renovate.json
+├── sonar-project.properties
+├── src
+│   ├── assets
+│   ├── components
+│   ├── content
+│   ├── layouts
+│   ├── lib
+│   ├── pages
+│   ├── scripts
+│   ├── styles
+│   └── tsconfig.json
+├── structure.txt
+├── tailwind.config.ts
+└── tsconfig.json
+
+10 directories, 9 files
 ```
 <!-- END_STRUCTURE -->
 ---
