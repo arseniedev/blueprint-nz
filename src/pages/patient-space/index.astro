@@ -17,7 +17,7 @@ const openId = Astro.url.searchParams.get('stage') ?? '';
     illustration={copy.illustration}
   />
   <section class="patient-path">
-    <h2>{copy.prompt}</h2>
+    <h6>{copy.prompt}</h6>
     <StageAccordion sections={patientSections} openId={openId} />
   </section>
 </Layout>
@@ -25,12 +25,13 @@ const openId = Astro.url.searchParams.get('stage') ?? '';
 <style>
   .patient-path {
     max-width: var(--content-width);
-    margin: 0 auto;
+    margin: 2em auto;
     padding: 0 1.5rem 4rem;
   }
 
-  h2 {
-    margin: 0 0 1rem;
-    color: var(--color-navy);
+  h6 {
+    font-weight: 700;
+    font-size: small;
+    margin: 1em 0;
   }
 </style>

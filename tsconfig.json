@@ -5,5 +5,12 @@
     "compilerOptions": {
         "jsx": "react-jsx",
         "jsxImportSource": "react"
+    },
+    "baseUrl": ".",
+    "paths": {
+      "@/*": ["src/*"],
+      "@components/*": ["src/components/*"],
+      "@assets/*": ["public/assets/*"],
+      "@layouts/*": ["src/layouts/*"]
     }
 }

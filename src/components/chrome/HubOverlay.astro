@@ -1,6 +1,8 @@
 ---
 import LineIcon from '../../components/ui/LineIcon.astro';
 import PlaceholderMedia from '../../components/media/PlaceholderMedia.astro';
+import OverlayThumbnail from '../../components/media/OverlayThumbnail.astro';
+
 import { overlays } from '../../content/ui/site';
 ---
 
@@ -20,7 +22,9 @@ import { overlays } from '../../content/ui/site';
       </button>
       <div class="hub-overlay__main">
         <div class="hub-overlay__art">
-          <PlaceholderMedia label="Placeholder: circular decorative mandala" />
+          {/* <PlaceholderMedia label="Placeholder: circular decorative mandala" /> */}
+          <OverlayThumbnail src="hero/hero-left-clear.png" alt="overlay mandala"/>
+        
         </div>
         <div class="hub-overlay__copy">
           <h2 id={`hub-heading-${panel.id}`}>{panel.heading}</h2>
@@ -155,7 +159,7 @@ import { overlays } from '../../content/ui/site';
     /* max-width: 900px; */
     background: var(--color-navy);
     color: #fff;
-    padding: 2.5rem 2rem 2rem;
+    /* padding: 2.5rem 2rem 2rem; */
     /* border-radius: 12px; */
   }
 
@@ -165,7 +169,8 @@ import { overlays } from '../../content/ui/site';
 
   .hub-overlay__art {
     display: flex;
-    align-items: center;
+    overflow-y: hidden;
+    /* align-items: center; */
   }
 
   .hub-overlay__art :global(.placeholder-media) {
@@ -193,7 +198,7 @@ import { overlays } from '../../content/ui/site';
 
   .hub-overlay__copy {
     max-width: 50rem;
-    margin: 1em 3em;
+    margin: 1em 2em;
   }
 
   h2 {

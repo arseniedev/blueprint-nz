@@ -1,6 +1,5 @@
 ---
 import ArticleThumbnail from '../media/ArticleThumbnail.astro';
-// import PlaceholderMedia from '../media/PlaceholderMedia.astro';
 
 interface Props {
   href: string;
@@ -12,7 +11,7 @@ interface Props {
 const { href, label, iconLabel, selected = false } = Astro.props;
 ---
 
-<a class:list={'category-card'} href={href}>
+<a class="category-card" href={href}>
   <ArticleThumbnail src="placeholder-cards.png" alt={iconLabel} />
   <span>{label}</span>
 </a>
