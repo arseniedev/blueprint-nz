@@ -1,4 +1,4 @@
-# BluePrintNZ
+# Prostate Care | Aotearoa
 ![Astro](https://img.shields.io/badge/AstroJS-%232C2052.svg?style=for-the-badge&logo=astro&logoColor=white)
 ![TypeScript](https://img.shields.io/badge/TypeScript-%23007ACC.svg?style=for-the-badge&logo=typescript&logoColor=white)
 ![Netlify](https://img.shields.io/badge/Netlify-%2300C7B7.svg?style=for-the-badge&logo=netlify&logoColor=white)
@@ -11,17 +11,17 @@
 
 ---
 ## Overview
-BluePrintNZ is an informational and resource platform designed to support individuals affected by prostate cancer in New Zealand. The site aims to provide reliable guidance, raise awareness, and connect users with helpful resources and support networks.
+Prostate Care is an informational and resource platform designed to support individuals affected by prostate cancer in New Zealand. The site aims to provide reliable guidance, raise awareness, and connect users with helpful resources and support networks.
 This project demonstrates full-stack development using modern web technologies, accessibility best practices, and responsive design principles.
 
 [![Live Demo](https://img.shields.io/badge/Netlify-Live%20Demo%20-181717?style=for-the-badge&logo=netlify&labelColor=080182)](https://blueprintnz.netlify.app/)
 
-## Wiki [→](https://github.com/arzenikos/blueprint-nz/wiki)
-- **[Iterations](https://github.com/arzenikos/blueprint-nz/wiki/Development-Iterations)**
+## Wiki [→](https://github.com/arzenikos/prostate-care/wiki)
+- **[Iterations](https://github.com/arzenikos/prostate-care/wiki/Development-Iterations)**
 - **[Figma Prototype](https://www.figma.com/design/fCs420IxnIJFJ5a36LEQdp/DesignThinkingProjects--Copy-?node-id=2012-192&t=OKl2kRrYhCOtsRTu-1)**
-- **[PDF Wireframe Diagram](https://github.com/arseniedev/blueprint-nz/tree/docs/assets/diagrams/blueprint-nz-diagram.pdf)**
-- **[Emerge Poster](https://github.com/arseniedev/blueprint-nz/tree/docs/assets/documents/emerge-poster.pdf)**
-- **[Short Paper](https://github.com/arseniedev/blueprint-nz/tree/docs/assets/documents/citrenz-short-paper.pdf)**
+- **[PDF Wireframe Diagram](https://github.com/arseniedev/prostate-care/tree/docs/assets/diagrams/prostate-care-diagram.pdf)**
+- **[Emerge Poster](https://github.com/arseniedev/prostate-care/tree/docs/assets/documents/emerge-poster.pdf)**
+- **[Short Paper](https://github.com/arseniedev/prostate-care/tree/docs/assets/documents/citrenz-short-paper.pdf)**
 
 ---
 ## Features
@@ -31,16 +31,11 @@ This project demonstrates full-stack development using modern web technologies, 
 - Accessibility-Focused: Ensures inclusive navigation for all users.
 - Deployment: Seamlessly hosted on Netlify with automated CI/CD.
 
-## Tech Stack
-- Framework: Astro (TypeScript)
-- Styling: TailwindCSS
-- Hosting & CI/CD: Netlify
-
 ## Project Structure
 
 <!-- README_TREE:START -->
 ```
-BluePrintNZ/
+./
 ├─ public/           # Static assets (images, icons)
 ├─ src/
 │  ├─ assets/        # Boilerplate assets
@@ -57,19 +52,30 @@ BluePrintNZ/
 
 ---
 ## Installation
-1. Clone the repository
-```
-git clone https://github.com/arsenie-sarmiento/draft-project-blueprint-nz.git
+
+### 1. Clone the repository
+
+```bash
+git clone https://github.com/arzenikos/prostate-care.git
 ```
 
-2. Install dependencies
+### 2. Install dependencies
+
+```bash
+cd prostate-care
+pnpm install
 ```
-cd draft-project-blueprint-nz
-npm install
+
+### 3. Copy assets to `public/`
+
+```bash
+cp -r src/assets/ public/assets/
 ```
-3. Start local development server
-```
-npm run dev
+
+### 4. Start local development server
+
+```bash
+pnpm run dev
 ```
 
 ---

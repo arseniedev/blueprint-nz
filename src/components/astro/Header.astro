@@ -10,8 +10,8 @@ const { showLeft = true } = Astro.props;
 			<a href="/">
 				<img src={SITE_LOGO_LIGHT} alt="Site logo" id="website-logo"/>
 			</a>
-			<div class="page-header-title website-title">
-				<h2 class="site-name">{SITE_TITLE}</h2><br>
+			<div class="page-header-title">
+				<h2 class="site-name">{SITE_TITLE.toLocaleUpperCase()}</h2><br>
 				Prostate Cancer Support Website
 			</div>
 		</div>
@@ -83,6 +83,7 @@ const { showLeft = true } = Astro.props;
 		/* align-items: left; */
 		padding: 2rem 0rem;
 		scale: 75%;
+		text-transform: uppercase;
 	}
 	h2 a,
 	h2 a.active {

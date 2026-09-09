@@ -1,0 +1,29 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import PersonaLayout from '../../layouts/PersonaLayout.astro';
+// import Header from '/src/components/astro/Header.astro'
+const { title } = Astro.props;
+---
+
+  
+  <BaseLayout title={title}>
+    <!-- <Header>
+      asa
+    </Header>     -->
+    <p>breadcrumbs</p>
+    <h1>
+      Family Page
+    </h1>
+
+    <PersonaLayout title="c">
+      <p>
+        From persona Layout: slot - Family
+      </p>
+    </PersonaLayout>
+
+
+  <!-- <div class="research">
+    <slot name="hero" />
+    <slot />
+  </div> -->
+</BaseLayout>

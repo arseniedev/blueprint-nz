@@ -2,24 +2,44 @@
 import { SITE_TITLE } from '../consts';
 import BaseLayout from '../layouts/BaseLayout.astro';
 
+import Card from '../components/astro/cards/Card.astro'
+
+
+const personas = [
+	{heading: "I AM SUPPORTING A LOVED ONE", subheading:"For whānau, partners, and friends looking for guides on caring, coordinating treatments, & finding support.", url:"/family-corner", image:""},
+	{heading: "I AM NAVIGATING MY OWN DIAGNOSIS", subheading:"For those looking to understand prostate cancer, explore treatment choices, or manage daily health.", url:"/patient-space", image:""},
+	{heading: "I AM LOOKING FOR CLINICAL DATA OR RESEARCH", subheading:"For researchers, clinicians, and students seeking peer‑reviewed journals, news articles, and statistics.", url:"/researcher-hub", image:""},
+]
 ---
 
 <BaseLayout title="Home">
-	<!-- <Fragment slot="header-right">
-		<nav><a href="/patient-space">patient</a></nav>
-	</Fragment> -->
+	
 	<img class="placeholder-card-icon" src="src/assets/images/pages/placeholder-cards.png">
-	<h1 class="website-title">
-		{SITE_TITLE.toLocaleUpperCase()}
-	</h1>
-	<a href= "/family">family </a>
-	<a href= "/patient-space">patient </a>
-	<a href= "/researcher">researcher </a>
+	<h1>{SITE_TITLE.toLocaleUpperCase()}</h1>
+
+	<!-- MAIN PERSONAS -->
+	<div class="card-container">
+	{personas.map(({ heading, subheading, url, image}) => (
+      <Card
+        heading={heading}
+        subheading={subheading}
+        url={url}
+        image={image}
+        />
+      ))}
+	</div>
+	
 </BaseLayout>
 
 
 <style>
 	.placeholder-card-icon {
 		height: 8vh;
+	}
+
+	.card-container {
+		display: flex;
+		gap: 3;
+		text-align: center;
 	}
 </style>
