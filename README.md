@@ -43,7 +43,9 @@ This project demonstrates full-stack development using modern web technologies, 
 .
 ├── README.md
 ├── astro.config.mjs
+├── netlify.toml
 ├── package.json
+├── pnpm-lock.yaml
 ├── pnpm-workspace.yaml
 ├── public
 │   └── assets
@@ -62,7 +64,7 @@ This project demonstrates full-stack development using modern web technologies, 
 ├── tailwind.config.ts
 └── tsconfig.json
 
-11 directories, 10 files
+11 directories, 12 files
 ```
 <!-- END_STRUCTURE -->
 ---
