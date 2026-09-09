@@ -76,13 +76,19 @@ git clone https://github.com/arzenikos/prostate-care.git
 
 ```bash
 cd prostate-care
-npm install
+pnpm install
+```
+
+### 3. Copy assets to `public/`
+
+```bash
+cp -r src/assets/ public/assets/
 ```
 
 ### 3. Start local development server
 
 ```bash
-npm run dev
+pnpm run dev
 ```
 
 ---

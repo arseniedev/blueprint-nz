@@ -20,22 +20,22 @@ const visibilityClass = desktopOnly ?
 ---
 
 <header class="sticky top-0 mb-5 py-3 z-40 w-full">
-  <div class=`container mx-auto px-10 md:px-6 lg:px-8 max-w-[2000px] flex ${visibilityClass} items-center h-20`>
+  <div class=`container mx-auto px-10 md:px-6 lg:px-8 max-w-500 flex ${visibilityClass} items-center h-20`>
     <!-- Logo (left) - Size from centralized file -->
-     <Logo/>
+      <Logo/>
+      
     <!-- Right Navigation Items -->
-    <div class={`flex items-center ${visibilityClass} py-2 gap-4`}>
+    <div class={`flex items-center ${visibilityClass} py-2 gap-3`}>
         {mainNavItems.map(item => (
           <FontSizeToggle {...item} />
         ))}
-        <div class={`flex items-center space-x-1 sm:space-x-8 ${className}`}>
+        <div class={`flex items-center space-x-1 sm:space-x-7 ${className}`}>
           <ThemeToggle />
         </div>
         <ChatBox />
       </div>
   </div>
 </header>
-
 
 <script>
   document.addEventListener('DOMContentLoaded', () => {
@@ -51,8 +51,8 @@ const visibilityClass = desktopOnly ?
     
     // Apply the current theme
     const applyTheme = (theme) => {
-        const darkLogo  = '/assets/logo/logo-03045e-6985c0.png';
-        const lightLogo = '/assets/logo/logo-b9d6f2-061a40.png'; // Change this to your dark logo path
+        const darkLogo  = '../../assets/logo/prostate-care-logo-light.png';
+        const lightLogo = '../../assets/logo/prostate-care-logo-dark.png'; // Change this to your dark logo path
         const logo = document.getElementById('site-logo');
         
         const themeToggleBtn = document.getElementById('theme-toggle');

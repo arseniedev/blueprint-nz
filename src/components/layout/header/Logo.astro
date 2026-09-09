@@ -2,18 +2,46 @@
 const {
 } = Astro.props;
 ---
-
-<div class="w-45 md:w-65">
-    <a href="/" class="flex items-center">
-    <img 
+<a href="/" class="header__left">
+    <img
         id="site-logo"
-        src="/assets/logo/logo-13232A-6DA3C0.png" 
-        alt='BlueprintNZ Logo'
+        src="/assets/logo/prostate-care-logo-light.png"
+        alt='Prostate Care Logo'
         class="object-contain"
     />
-    </a>
-</div> 
+    <div class="header__left-title">
+        <h2>Prostate Care</h2>
+        <p>Prostate Cancer Website</p>
+    </div>
+</a>
 
-<script>
 
-</script>
+<style>
+    img {
+        max-width: 75px;
+        /* max-width: 16%; */
+
+    }
+    .header__left {
+      display: flex;
+      align-items: center;
+      text-decoration: none;
+      gap: 2;
+      /* margin: 0; */
+
+    }
+    .header__left-title {
+      width: 100%;
+      margin: 0em 1em;
+
+    }
+
+    h2 {
+        font-weight: 900;
+        color: var(--color-palette-accent);
+    }
+
+    p {
+        color: var(--color-palette-accent);
+    }
+  </style>

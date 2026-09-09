@@ -12,7 +12,6 @@ export const footerLinks = {
       links: [
         { text: "How to Use This Site", url: "empty" },
         { text: "FAQ", url: "empty" },
-<<<<<<< HEAD:src/content/footer.ts
         { text: "Glossary", url: "empty" },
         { text: "Privacy Policy", url: "empty" },
         { text: "Terms of Use", url: "empty" }
@@ -25,25 +24,11 @@ export const footerLinks = {
         { text: "Upcoming Events", url: "empty" },
         { text: "Newsletter Signup", url: "empty" },
         { text: "Community Stories", url: "empty" }
-=======
-        { text: "Terms of Use", url: "empty" },
-        { text: "Privacy Policy", url: "empty" }
-      ]
-    },
-    {
-      title: "News & Events",
-      links: [
-        { text: "Latest Updates", url: "empty" },
-        { text: "Upcoming Events", url: "empty" },
-        { text: "Webinars & Talks", url: "empty" },
-        { text: "Community Stories", url: "empty" },
->>>>>>> feature/iteration-003-bluenode-content:src/content/common/footer.ts
       ]
     },
     {
       title: "Shop & Services",
       links: [
-<<<<<<< HEAD:src/content/footer.ts
         { text: "Health Guides", url: "empty" },
         { text: "Wellness Kits", url: "empty" },
         { text: "Screening Bookings", url: "empty" },
@@ -57,12 +42,6 @@ export const footerLinks = {
         { text: "Volunteer", url: "empty" },
         { text: "Link", url: "empty" },
         { text: "Link", url: "empty" }
-=======
-        { text: "Health & Diet Guides", url: "empty" },
-        { text: "Wellbeing Kits", url: "empty" },
-        { text: "Donate", url: "empty" },
-        { text: "Volunteer", url: "empty" }
->>>>>>> feature/iteration-003-bluenode-content:src/content/common/footer.ts
       ]
     },
   ],
