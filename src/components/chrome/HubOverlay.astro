@@ -15,44 +15,46 @@ import { overlays } from '../../content/ui/site';
       aria-modal="true"
       aria-labelledby={`hub-heading-${panel.id}`}
     >
-      <div class="hub-overlay__art">
-        <PlaceholderMedia label="Placeholder: circular decorative mandala" />
-      </div>
       <button class="hub-overlay__close" type="button" data-overlay-close aria-label="Close overlay">
         <LineIcon name="close" />
       </button>
-      <div class="hub-overlay__copy">
-        <h2 id={`hub-heading-${panel.id}`}>{panel.heading}</h2>
-        <p>{panel.body}</p>
+      <div class="hub-overlay__main">
+        <div class="hub-overlay__art">
+          <PlaceholderMedia label="Placeholder: circular decorative mandala" />
+        </div>
+        <div class="hub-overlay__copy">
+          <h2 id={`hub-heading-${panel.id}`}>{panel.heading}</h2>
+          <p>{panel.body}</p>
 
-        {panel.id === 'newsletter' && (
-          <form class="hub-form" action="/footer/news-and-events/xnewsletter" method="get">
-            <label class="sr-only" for="newsletter-email">Email address</label>
-            <input id="newsletter-email" name="email" type="email" placeholder="email@example.com" required />
-            <button type="submit" aria-label="Subscribe">
-              <LineIcon name="send" />
-            </button>
-          </form>
-        )}
+          {panel.id === 'newsletter' && (
+            <form class="hub-form" action="/footer/news-and-events/xnewsletter" method="get">
+              <label class="sr-only" for="newsletter-email">Email address</label>
+              <input id="newsletter-email" name="email" type="email" placeholder="email@example.com" required />
+              <button type="submit" aria-label="Subscribe">
+                <LineIcon name="send" />
+              </button>
+            </form>
+          )}
 
-        {panel.id === 'accessibility' && (
-          <div class="a11y-controls">
-            <p>Text size</p>
-            <div class="a11y-row">
-              <button type="button" data-font-size="sm">A</button>
-              <button type="button" data-font-size="base">A</button>
-              <button type="button" data-font-size="xl">A</button>
+          {panel.id === 'accessibility' && (
+            <div class="a11y-controls">
+              <p>Text size</p>
+              <div class="a11y-row">
+                <button type="button" data-font-size="sm">A</button>
+                <button type="button" data-font-size="base">A</button>
+                <button type="button" data-font-size="xl">A</button>
+              </div>
+              <button type="button" class="contrast-btn" data-contrast-toggle>Toggle high contrast</button>
             </div>
-            <button type="button" class="contrast-btn" data-contrast-toggle>Toggle high contrast</button>
-          </div>
-        )}
+          )}
 
-        {'footerLink' in panel && panel.footerLink && (
-          <a class="hub-overlay__cta" href={panel.footerLink.href}>
-            {panel.footerLink.label}
-            <LineIcon name="chevron" size={18} />
-          </a>
-        )}
+          {'footerLink' in panel && panel.footerLink && (
+            <a class="hub-overlay__cta" href={panel.footerLink.href}>
+              {panel.footerLink.label}
+              <LineIcon name="chevron" size={18} />
+            </a>
+          )}
+        </div>
       </div>
     </section>
   ))}
@@ -120,26 +122,41 @@ import { overlays } from '../../content/ui/site';
   if (localStorage.getItem('pamana-contrast') === 'on') {
     document.documentElement.classList.add('high-contrast');
   }
+
+  // window.addEventListener('scroll', closeAll);
+
+
+
 </script>
 
 <style>
   .hub-root:not([hidden]) {
     display: block;
     /* max-width: var(--content-width); */
-    margin: 0 auto;
-    padding: 0 1.5rem 1.5rem;
+    max-height: var(--content-height);
+    /* margin: 0 auto; */
+    /* padding: 0 1.5rem 1.5rem; */
+    /* Float */
+    position: relative;        /* stays on screen */
+    inset: 0;               /* top:0 right:0 bottom:0 left:0 */
+    background: rgba(0, 0, 0, 0.5); /* dimmed backdrop */
+    /* display: flex; */
+    /* align-items: center; */
+    /* justify-content: center; */
+    z-index: 999;           /* above everything */
+    padding: 0 0 1.5rem;
+    overflow-y: auto;
+    
   }
 
   .hub-overlay {
-    position: relative;
-    display: grid;
-    grid-template-columns: minmax(140px, 280px) 1fr;
-    gap: 2rem;
+    position: relative; /* this is fine */
+    /* margin: 4rem auto; */
+    /* max-width: 900px; */
     background: var(--color-navy);
     color: #fff;
-    min-height: 280px;
     padding: 2.5rem 2rem 2rem;
-    overflow: hidden;
+    /* border-radius: 12px; */
   }
 
   .hub-overlay[hidden] {
@@ -154,6 +171,8 @@ import { overlays } from '../../content/ui/site';
   .hub-overlay__art :global(.placeholder-media) {
     min-height: 300px;
     color: #fff;
+    min-width: 300px;
+    /* max-width: var(--content-width); */
   }
 
   .hub-overlay__close {
@@ -166,8 +185,15 @@ import { overlays } from '../../content/ui/site';
     cursor: pointer;
   }
 
+  .hub-overlay__main {
+    display: flex;
+    /* gap: 2; */
+    /* justify-content: space-between; */
+  }
+
   .hub-overlay__copy {
-    max-width: 36rem;
+    max-width: 50rem;
+    margin: 1em 3em;
   }
 
   h2 {
@@ -178,6 +204,7 @@ import { overlays } from '../../content/ui/site';
 
   p {
     margin: 0 0 1.2rem;
+    font-size: clamp(1rem, 2vw, 1.8rem);
     color: #fff;
     line-height: 1.55;
   }
