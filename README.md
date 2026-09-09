@@ -53,14 +53,13 @@ This project demonstrates full-stack development using modern web technologies, 
 │   ├── layouts
 │   ├── lib
 │   ├── pages
-│   ├── scripts
 │   ├── styles
 │   └── tsconfig.json
 ├── structure.txt
 ├── tailwind.config.ts
 └── tsconfig.json
 
-10 directories, 9 files
+9 directories, 9 files
 ```
 <!-- END_STRUCTURE -->
 ---
