@@ -1,19 +1,32 @@
 ---
-import Icon from '../../components/ui/Icon.astro';
-const {
-    head,
-    content
-} = Astro.props;
+interface Props {
+  head: string;
+  content: string;
+}
 
-const textColor = "text-[var(--color-palette-two)]";
-// const textHoverColor = "hover:text-[var(--color-palette-two)]";
-// const bgColor = "hover:text-[var(--color-palette-gray)]";
-const bgColor = "bg-[var(--color-palette-light-gray)]";
+const { head, content } = Astro.props;
 ---
-<div class=`${bgColor} flex items-start gap-7 my-5 border-l-4 py-6 border-blue-500 p-4 rounded shadow transition-colors duration-300`>
-    <div class=`text-1xl item-center justify-center mr-2`>💡</div>
-    <div class=``>
-        <p class=`${textColor} font-bold scale-105 mb-2`>{head}</p>
-        <p class=`${textColor}` set:html={content}></p>
-    </div>
-</div>
+
+<aside class="callout">
+  <strong>{head}</strong>
+  <p set:html={content}></p>
+</aside>
+
+<style>
+  .callout {
+    padding: 1rem 1.1rem;
+    border-left: 4px solid var(--color-navy);
+    background: var(--color-card);
+    margin: 0 0 1.4rem;
+  }
+
+  strong {
+    display: block;
+    margin-bottom: 0.35rem;
+    color: var(--color-navy);
+  }
+
+  p {
+    margin: 0;
+  }
+</style>

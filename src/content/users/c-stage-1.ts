@@ -74,7 +74,7 @@ export const content = {
             label: `Empty Page`,
             description: resourceContent.contentByCategory["stage-1"].data['2'].content,
             main: {
-                x: {
+                content: {
                 subheading: "Managing treatment with meds and a solid care plan",
                 body: [
                     `Treating prostate cancer often involves a combination of medications and a personalized care plan tailored to the stage and aggressiveness of the cancer.`,

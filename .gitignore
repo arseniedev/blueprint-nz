@@ -75,3 +75,9 @@ Thumbs.db
 .netlify/
 functions/*.js
 functions/*.map
+
+
+# Assets
+public/assets/
+
+

@@ -1,0 +1,58 @@
+---
+import LineIcon from '@components/ui/LineIcon.astro';
+import { footerLinks } from '@contents/ui/site';
+---
+
+<footer class="site-footer">
+  <nav class="site-footer__nav" aria-label="Project links">
+    {footerLinks.map((link) => (
+      <a
+        href={link.href}
+        class="site-footer__link"
+        target={link.external ? '_blank' : undefined}
+        rel={link.external ? 'noreferrer' : undefined}
+      >
+        <LineIcon name={link.icon} size={18} />
+        <span>{link.label}</span>
+      </a>
+    ))}
+  </nav>
+</footer>
+
+<style>
+  .site-footer {
+    position: sticky;
+    bottom: 0;
+    z-index: 30;
+    display: flex;
+    justify-content: center;
+    padding: 0.85rem 1rem 1.1rem;
+    background: color-mix(in srgb, var(--color-bg) 70%, transparent);
+    opacity: 0.45;
+    transition: opacity 0.3s ease-in-out;
+  }
+
+  .site-footer:hover,
+  .site-footer:focus-within {
+    opacity: 1;
+  }
+
+  .site-footer__nav {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+  }
+
+  .site-footer__link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.45rem;
+    text-decoration: none;
+    color: var(--color-text-muted);
+    font-size: 0.9rem;
+  }
+
+  .site-footer__link:hover {
+    color: var(--color-navy);
+  }
+</style>

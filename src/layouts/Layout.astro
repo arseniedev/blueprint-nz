@@ -1,54 +1,27 @@
 ---
-import Header from '../components/layout/header/Header.astro';
-// import site from '../data/site.json';
-import CanvasNav from '../components/CanvasNav.astro';
-
+import SiteHeader from './SiteHeader.astro';
+import SiteFooter from './SiteFooter.astro';
+import HubOverlay from '@components/chrome/HubOverlay.astro';
+import ChatTrigger from '@components/chrome/ChatTrigger.astro';
+import type { HubId } from '@contents/ui/site';
 import '../styles/globals.css';
-
-
-const { title, description = "" } = Astro.props;
+                
 
 interface Props {
   title: string;
   description?: string;
+  variant?: 'landing' | 'hub' | 'minimal';
+  hub?: HubId;
+  showChat?: boolean;
 }
 
-// edges are DIRECTED [parentId, childId] — this drives both the lines
-// AND which nodes collapse together when you right-click a parent.
-
-interface CanvasNode {
-  id: string;
-  title: string;
-  excerpt: string;
-  url: string;
-  x: number;
-  y: number;
-  type: 'core' | 'content' | 'utility';
-}
-
-const nodes: CanvasNode[] = [
-  { id: 'home',    title: 'Home',            excerpt: 'Landing page, entry point', url: '/',           x: 1000, y: 120, type: 'core' },
-  { id: 'about',   title: 'About',           excerpt: 'Who this is for',           url: '/about',      x: 660,  y: 320, type: 'core' },
-  { id: 'work',    title: 'Work / Services', excerpt: 'What is offered',           url: '/work',       x: 1340, y: 320, type: 'core' },
-  { id: 'case1',   title: 'Case study',      excerpt: 'Project deep-dive',         url: '/work/case1', x: 1200, y: 520, type: 'content' },
-  { id: 'case2',   title: 'Case study',      excerpt: 'Second deep-dive',          url: '/work/case2', x: 1480, y: 520, type: 'content' },
-  { id: 'blog',    title: 'Blog',            excerpt: 'Articles and updates',      url: '/blog',       x: 660,  y: 560, type: 'content' },
-  { id: 'post1',   title: 'Latest post',     excerpt: 'Most recent article',       url: '/blog/1',     x: 500,  y: 760, type: 'content' },
-  { id: 'post2',   title: 'Featured post',   excerpt: 'Pinned article',            url: '/blog/2',     x: 800,  y: 760, type: 'content' },
-  { id: 'contact', title: 'Contact',         excerpt: 'Get in touch',              url: '/contact',    x: 1000, y: 780, type: 'core' },
-];
-
-const edges: [string, string][] = [
-  ['home', 'about'],
-  ['home', 'work'],
-  ['home', 'contact'],
-  ['work', 'case1'],   // right-click "Work / Services" to collapse these two
-  ['work', 'case2'],
-  ['about', 'blog'],
-  ['blog', 'post1'],   // right-click "Blog" to collapse these two
-  ['blog', 'post2'],
-];
-
+const {
+  title,
+  description = 'Pamana — prostate cancer support for Aotearoa New Zealand',
+  variant = 'hub',
+  hub = 'patient',
+  showChat = true,
+} = Astro.props;
 ---
 
 <!DOCTYPE html>
@@ -56,52 +29,30 @@ const edges: [string, string][] = [
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="icon" type="image/png" href="/favicon.svg" />
+    <link href="https://fonts.cdnfonts.com/css/maragsa" rel="stylesheet">
+
     <meta name="generator" content={Astro.generator} />
     <meta name="description" content={description} />
-    <title>{title}</title>
-    <script is:inline>
-      const storedTheme = typeof localStorage !== 'undefined' ? localStorage.getItem('theme') : null;
-      const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-      const theme = storedTheme || (prefersDark ? 'dark' : 'light');
-      document.documentElement.classList.toggle('dark', theme === 'dark');
-    </script>
+    <title>
+      {title}</title>
+      <link rel="icon" type="image/png" href="/assets/images/logo/pamana-logo.png"/>
   </head>
-  <body class="flex min-h-screen flex-col bg-[var(--color-palette-zero)] text-[var(--color-palette-five)]">
+  <body>
+    <SiteHeader variant={variant} hub={hub} />
     
-    <Header />
-    
-    <main class="grow">
+    <HubOverlay />
+
+    <main>
       <slot />
     </main>
-
-    <CanvasNav nodes={nodes} edges={edges} currentPath={Astro.url.pathname} height="100vh" />
-
+    {showChat && <ChatTrigger />}
+    <SiteFooter />
   </body>
 </html>
 
-<script>
-  const lightLogo = '/assets/images/home-icon/logo-b9d6f2-061a40.png';
-  const darkLogo = '/assets/images/home-icon/logo-13232A-6DA3C0.png';
-
-  function applyTheme(theme: string) {
-    const isDark = theme === 'dark';
-    document.documentElement.classList.toggle('dark', isDark);
-    const logo = document.getElementById('site-logo');
-    if (logo instanceof HTMLImageElement) {
-      logo.src = isDark ? darkLogo : lightLogo;
-    }
-    document.getElementById('theme-toggle-dark-icon')?.classList.toggle('hidden', isDark);
-    document.getElementById('theme-toggle-light-icon')?.classList.toggle('hidden', !isDark);
+<style is:global>
+  main {
+    min-height: calc(100vh - 160px);
   }
-
-  const current = localStorage.getItem('theme')
-    || (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
-  applyTheme(current);
-
-  document.getElementById('theme-toggle')?.addEventListener('click', () => {
-    const next = document.documentElement.classList.contains('dark') ? 'light' : 'dark';
-    localStorage.setItem('theme', next);
-    applyTheme(next);
-  });
-</script>
+</style>

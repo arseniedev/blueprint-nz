@@ -1,75 +1,89 @@
 ---
-import Layout from '../layouts/Layout.astro';
-
-const title = "BluePrintNZ | Prostate Cancer Foundation of New Zealand";
-
-import HeroSection from './_home/HeroSection.astro';
-import UsersSection from './_home/UsersSection.astro';
-import ResourceSection from './_home/ResourceSection.astro';
-import ContextSection from './_home/ContextSection.astro';
-// import GetStartedSection from './_home/GetStartedSection.astro';
-
-import { heroContent, userContent, resourceContent, overviewContent } from '../content/home.ts';
-import { componentConfiguration } from '../lib/themes-and-layout/section-config';
-
+import Layout from '@layouts/Layout.astro';
+import SplashScreen from '@components/chrome/SplashScreen.astro';
+import BrandMark from '@components/brand/BrandMark.astro';
+import PersonaCard from '@components/cards/PersonaCard.astro';
+import { brand, landing } from '@contents/ui/site';
 ---
 
-<Layout title={title}>
-    <HeroSection
-      content={heroContent}
-      reversed = {false}
-      config={componentConfiguration}
-    />
-    <UsersSection
-      content={userContent}
-      config={componentConfiguration}
-    />
-    <ResourceSection
-        content={resourceContent}
-        config={componentConfiguration}
-    />
-    <!-- <div class="page-background-wrapper">
-      <img
-        class="page-background-image"
-        src="/assets/banner/hero-generic-banner-light.jpg"
-        alt="Background"
-      />
-    </div> -->
-
-    <ContextSection
-      content={overviewContent}
-      config={componentConfiguration}
-    />
-  <!-- <section class="homeSection">
-    <GetStartedSection/>
-  </section> -->
+<Layout title="Pamana | Prostate Cancer Support Website" variant="landing" showChat={true}>
+  <SplashScreen />
+  <section class="landing">
+    <div class="landing__brand">
+      <BrandMark size="lg" />
+      <p class="te-reo">{brand.teReo}</p>
+      <h1>{landing.heading}</h1>
+      <p class="lead">{landing.instruction}</p>
+    </div>
+    <div class="landing__paths">
+      {landing.paths.map((path) => (
+        <PersonaCard
+          href={path.href}
+          title={path.title}
+          body={path.body}
+          thumbnail={path.thumbnail}
+          label={path.iconLabel}
+        />
+      ))}
+    </div>
+    
+  </section>
 </Layout>
 
-
-<!-- <script>
-  let lastMouseY = 0;
-  let scrollTriggered = false;
-
-  window.addEventListener("mousemove", (e) => {
-    const currentY = e.clientY;
-    const deltaY = currentY - lastMouseY;
-
-    // Detect upward movement
-    if (deltaY < -10 && !scrollTriggered) {
-      scrollTriggered = true;
-
-      // Scroll to target section
-      const target = document.getElementById("user-section");
-      if (target) {
-        target.scrollIntoView({ behavior: "smooth", block: "start" });
-      }
-
-      // Prevent rapid re-triggers
-      setTimeout(() => {
-        scrollTriggered = false;
-      }, 2000); // adjust delay as needed
-    }
-
-    lastMouseY = currentY;
+<script>
+  document.querySelector('[data-open-chat]')?.addEventListener('click', () => {
+    document.querySelector('.chat-trigger')?.dispatchEvent(new Event('click'));
   });
-</script> -->
+</script>
+
+<style>
+  .landing {
+    max-width: var(--content-width);
+    margin: 0 auto;
+    padding: 0.5rem 1.5rem 4rem;
+    text-align: center;
+  }
+
+  .landing__brand {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.7rem;
+    margin-bottom: 2rem;
+  }
+
+  .te-reo {
+    margin: 0;
+    color: var(--color-text-subtle);
+    font-size: 0.95rem;
+  }
+
+  h1 {
+    margin: 0.3rem 0 0;
+    font-size: clamp(2rem, 4vw, 3.2rem);
+    line-height: 1.15;
+    color: var(--color-navy);
+  }
+
+  .lead {
+    margin: 0;
+    color: var(--color-text-muted);
+    font-size: clamp(2rem, 2vw, 1.2rem);
+    max-width: 50rem;
+
+  }
+
+  .landing__paths {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 1.25rem;
+    text-align: left;
+  }
+
+  
+  @media (max-width: 860px) {
+    .landing__paths {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>
