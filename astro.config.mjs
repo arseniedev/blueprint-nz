@@ -19,13 +19,13 @@ export default defineConfig({
             options: {
                 variants: [
                     {
-                        src: ['./src/assets/fonts/GothamSSm/gothamcondssm_black.otf'],
+                        src: ['/assets/fonts/GothamSSm/gothamcondssm_black.otf'],
                         weight: 400,
                         style: 'normal',
                         display: 'swap',
                     },
                     {
-                        src: ['./src/assets/fonts/GothamSSm/gothamxnarrssm_bold.otf'],
+                        src: ['/assets/fonts/GothamSSm/gothamxnarrssm_bold.otf'],
                         weight: 700,
                         style: 'bold',
                         display: 'swap',
@@ -41,13 +41,13 @@ export default defineConfig({
             options: {
                 variants: [
                     {
-                        src: ['./src/assets/fonts/atkinsons/atkinson-bold.woff'],
+                        src: ['/assets/fonts/atkinsons/atkinson-bold.woff'],
                         weight: 500,
                         style: 'bold',
                         display: 'swap',
                     },
                     {
-                        src: ['./src/assets/fonts/atkinsons/atkinson-regular.woff'],
+                        src: ['/assets/fonts/atkinsons/atkinson-regular.woff'],
                         weight: 200,
                         style: 'normal',
                         display: 'swap',

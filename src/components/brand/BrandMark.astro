@@ -1,5 +1,5 @@
 ---
-import pamanaLogo from '../../assets/images/logo/pamana-logo.png';
+// import pamanaLogo from '/assets/images/logo/pamana-logo.png';
 
 interface Props {
   href?: string;
@@ -7,11 +7,11 @@ interface Props {
   alt?: string;
 }
 
-const { href = '/', size = 'md', alt = 'Pamana logo' } = Astro.props;
+const { href = '/', size = 'md', alt = 'Prostate Care logo' } = Astro.props;
 ---
 
-<a href={href} class:list={['brand-mark', `brand-mark--${size}`]} aria-label="Pamana home">
-  <img src={pamanaLogo.src} alt={alt} width="88" height="88" />
+<a href={href} class=`brand-mark brand-mark--${size}` aria-label="Prostate Care home">
+  <img src="https://github.com/user-attachments/assets/53114be2-7b6d-47f0-92a7-af3985a028d0" alt={alt} width="88" height="88" />
 </a>
 
 <style>

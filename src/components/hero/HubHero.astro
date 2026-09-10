@@ -1,7 +1,7 @@
 ---
 import Breadcrumbs from '../ui/Breadcrumbs.astro';
-import PlaceholderMedia from '../media/PlaceholderMedia.astro';
 import type { Crumb } from '../../lib/types/nav';
+import HeroThumbnail from '../media/HeroThumbnail.astro';
 
 interface Props {
   breadcrumbs: Crumb[];
@@ -15,7 +15,7 @@ interface Props {
 const { breadcrumbs, heading, intro, illustration, band = false, cta } = Astro.props;
 ---
 
-<section class:list={['hub-hero', band && 'hub-hero--band']}>
+<section class="hub-hero band hub-hero--band">
   <div class="hub-hero__copy">
     <Breadcrumbs items={breadcrumbs} />
     <h1>{heading}</h1>
@@ -28,7 +28,7 @@ const { breadcrumbs, heading, intro, illustration, band = false, cta } = Astro.p
     )}
   </div>
   <div class="hub-hero__art">
-    <PlaceholderMedia label={illustration} />
+    <HeroThumbnail src="path-cards/path-patient-space.png" alt={illustration}/>
   </div>
 </section>
 
@@ -57,17 +57,18 @@ const { breadcrumbs, heading, intro, illustration, band = false, cta } = Astro.p
 
   h1 {
     margin: 0.7rem 0 0.9rem;
-    font-size: clamp(1.8rem, 3vw, 2.6rem);
+    font-size: clamp(2.1rem, 3vw, 2.6rem);
     line-height: 1.2;
     color: var(--color-navy);
+    font-weight: 800;
   }
 
   p {
     margin: 0;
     max-width: 65rem;
     color: var(--color-navy);
-    font-size: clamp(1.2rem, 1.5vw, 2rem);
-    line-height: 1.55;
+    font-size: clamp(1.3rem, 1.5vw, 1.1rem);
+    line-height: 2.5;
   }
 
   .hub-hero__cta {

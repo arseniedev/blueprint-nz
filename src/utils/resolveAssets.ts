@@ -4,7 +4,7 @@ const imageModules = import.meta.glob<string>('/public/assets/images/**/*.{png,j
   import: 'default',
 });
 
-/** Resolve a path relative to `src/assets/images/`, e.g. `path-cards/path-patient-space.png`. */
+/** Resolve a path relative to `public/assets/images/`, e.g. `path-cards/path-patient-space.png`. */
 export function resolveAsset(relativePath: string): string {
   const key = `/public/assets/images/${relativePath.replace(/^\//, '')}`;
   const url = imageModules[key];
