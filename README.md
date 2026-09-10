@@ -80,20 +80,23 @@ git clone https://github.com/arzenikos/prostate-care.git
 
 ```bash
 cd prostate-care
-pnpm install
+npm install
 ```
 
-### 3. Copy assets to `public/`
+### 3. Clone fresh assets from private repo `prostate-care-assets` to `public/assets`
 
 ```bash
-mkdir public/assets/
-cp -r src/assets/ public/assets/
+# Make sure public/assets directory exist
+cd public/
+
+git clone --recurse-submodules https://github.com/arzenikos/prostate-care-assets.git
+
 ```
 
-### 3. Start local development server
+### 4. Start local development server
 
 ```bash
-pnpm run dev
+npm run dev
 ```
 
 ---
