@@ -78,7 +78,6 @@ functions/*.map
 
 
 # Assets
-src/assets/**/*
-public/assets/**/*
+public/assets/
 
 
