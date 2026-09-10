@@ -1,7 +1,7 @@
 ---
 import { getCollection, render } from 'astro:content';
 import type { CollectionEntry } from 'astro:content';
-import ArticleLayout from '../../../layouts/ArticleLayout.astro';
+import ArticleLayout from '../@layouts/ArticleLayout.astro';
 import { tocFromHeadings } from '../../../lib/markdown';
 
 export async function getStaticPaths() {
