@@ -126,6 +126,9 @@ git checkout --recurse-submodules other-branch
 # Deinit the submodule's working directory without deleting its config
 git submodule deinit -f public/assets
 
+rm -r .\node_modules\
+rm -r .\package-lock.json
+
 # Now switch branches
 git checkout <other-branch-without-submodule>
 
