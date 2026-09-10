@@ -10,6 +10,7 @@
             "@assets/*": ["./public/assets/*"],
             "@components/*": ["./src/components/*"],
             "@layouts/*": ["./src/layouts/*"],
+            "@utils/*": ["./src/utils/*"],
             "@styles/*": ["./src/styles/*"],
             "@library/*": ["./src/lib/*"],
             "@contents/*": ["./src/content/*"]

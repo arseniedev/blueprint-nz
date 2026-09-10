@@ -1,15 +1,8 @@
 ---
-<<<<<<< HEAD
 import LineIcon from '@components/ui/LineIcon.astro';
-import PlaceholderMedia from '@components/media/PlaceholderMedia.astro';
-import { overlays } from '@contents/ui/site';
-=======
-import LineIcon from '../../components/ui/LineIcon.astro';
-import PlaceholderMedia from '../../components/media/PlaceholderMedia.astro';
-import OverlayThumbnail from '../../components/media/OverlayThumbnail.astro';
+import OverlayThumbnail from '@components/media/OverlayThumbnail.astro';
 
-import { overlays } from '../../content/ui/site';
->>>>>>> 48aafe8cc14bd126e65565de68e5cfecfe6e3d38
+import { overlays } from '@contents/ui/site';
 ---
 
 <div class="hub-root" data-hub-root hidden>
@@ -28,7 +21,6 @@ import { overlays } from '../../content/ui/site';
       </button>
       <div class="hub-overlay__main">
         <div class="hub-overlay__art">
-          {/* <PlaceholderMedia label="Placeholder: circular decorative mandala" /> */}
           <OverlayThumbnail src="hero/hero-left-clear.png" alt="overlay mandala"/>
         
         </div>
