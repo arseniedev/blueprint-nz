@@ -1,7 +1,7 @@
 ---
 import LineIcon from '@components/ui/LineIcon.astro';
 import OverlayThumbnail from '@components/media/OverlayThumbnail.astro';
-import AccessibilityPanelOverlay from '@components/chrome/AccessibilityPanelOverlay.astro';
+// import AccessibilityPanelOverlay from '@components/chrome/AccessibilityPanelOverlay.astro';
 
 import { overlays } from '@contents/ui/site';
 ---
@@ -39,9 +39,9 @@ import { overlays } from '@contents/ui/site';
             </form>
           )}
 
-          {panel.id === 'accessibility' && (
+          {/* {panel.id === 'accessibility' && (
             <AccessibilityPanelOverlay/>
-          )}
+          )} */}
 
           {'footerLink' in panel && panel.footerLink && (
             <a class="hub-overlay__cta" href={panel.footerLink.href}>

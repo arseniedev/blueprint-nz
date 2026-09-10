@@ -1,10 +1,10 @@
 ---
-import SiteHeader from './SiteHeader.astro';
-import SiteFooter from './SiteFooter.astro';
+import SiteHeader from '@layouts/SiteHeader.astro';
+import SiteFooter from '@layouts/SiteFooter.astro';
 import HubOverlay from '@components/chrome/HubOverlay.astro';
 import ChatTrigger from '@components/chrome/ChatTrigger.astro';
 import type { HubId } from '@contents/ui/site';
-import '../styles/globals.css';
+import '@styles/globals.css';
                 
 
 interface Props {
@@ -36,7 +36,7 @@ const {
     <meta name="description" content={description} />
     <title>
       {title}</title>
-      <link rel="icon" type="image/png" href="/assets/images/logo/pamana-logo.png"/>
+      <link rel="icon" type="image/png" href="@assets/images/logo/pamana-logo.png"/>
   </head>
   <body>
     <SiteHeader variant={variant} hub={hub} />
