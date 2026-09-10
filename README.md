@@ -86,10 +86,9 @@ npm install
 ### 3. Clone fresh assets from private repo `prostate-care-assets` to `public/assets`
 
 ```bash
-# Make sure public/assets directory exist
-cd public/
+# Adding submodule
+git submodule add --force https://github.com/arzenikos/prostate-care-assets.git public/assets
 
-git clone --recurse-submodules https://github.com/arzenikos/prostate-care-assets.git
 
 # Set submodule deinitialisation behavior for easier clean up (important when switching branches)
 git config --global submodule.recurse true
