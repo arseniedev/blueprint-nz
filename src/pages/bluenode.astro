@@ -1,0 +1,47 @@
+---
+import Canvas from '@components/media/Canvas.astro';
+
+interface CanvasNode {
+    id: string;
+    title: string;
+    excerpt: string;
+    url: string;
+    x: number;
+    y: number;
+    type: 'core' | 'content' | 'utility';
+}
+
+interface Props {
+    nodes: CanvasNode[];
+    edges: [string, string][];
+    currentPath?: string;
+    height?: string; // CSS height, defaults to 100vh
+}
+
+const nodes: CanvasNode[] = [
+    { id: 'home',    title: 'Home',            excerpt: 'Landing page, entry point', url: '/',           x: 1000, y: 120, type: 'core' },
+    { id: 'about',   title: 'About',           excerpt: 'Who this is for',           url: '/about',      x: 660,  y: 320, type: 'core' },
+    { id: 'work',    title: 'Work / Services', excerpt: 'What is offered',           url: '/work',       x: 1340, y: 320, type: 'core' },
+    { id: 'case1',   title: 'Case study',      excerpt: 'Project deep-dive',         url: '/work/case1', x: 1200, y: 520, type: 'content' },
+    { id: 'case2',   title: 'Case study',      excerpt: 'Second deep-dive',          url: '/work/case2', x: 1480, y: 520, type: 'content' },
+    { id: 'blog',    title: 'Blog',            excerpt: 'Articles and updates',      url: '/blog',       x: 660,  y: 560, type: 'content' },
+    { id: 'post1',   title: 'Latest post',     excerpt: 'Most recent article',       url: '/blog/1',     x: 500,  y: 760, type: 'content' },
+    { id: 'post2',   title: 'Featured post',   excerpt: 'Pinned article',            url: '/blog/2',     x: 800,  y: 760, type: 'content' },
+    { id: 'contact', title: 'Contact',         excerpt: 'Get in touch',              url: '/contact',    x: 1000, y: 780, type: 'core' },
+];
+
+const edges: [string, string][] = [
+    ['home', 'about'],
+    ['home', 'work'],
+    ['home', 'contact'],
+    ['work', 'case1'],   // right-click "Work / Services" to collapse these two
+    ['work', 'case2'],
+    ['about', 'blog'],
+    ['blog', 'post1'],   // right-click "Blog" to collapse these two
+    ['blog', 'post2'],
+];
+
+---
+
+<Canvas nodes={nodes} edges={edges} currentPath={Astro.url.pathname} height="100vh" />
+  

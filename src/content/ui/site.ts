@@ -99,13 +99,19 @@ export const overlays = {
     id: 'newsletter',
     heading: "Let's navigate this together.",
     body: 'Sign up to receive monthly guides, community stories, and the latest clinical insights to support you, your whānau, and your healthcare team.',
-    footerLink: { label: 'See all newsletters', href: '/footer/news-and-events/news' },
+    footerLink: { label: 'See all newsletters', href: '/newsletters' },
   },
   clinics: {
     id: 'clinics',
     heading: 'Find a clinic near me',
     body: 'Find a healthcare team, seek a second opinion, and search for accredited urologists and cancer centres across New Zealand.',
-    footerLink: { label: 'Search clinics', href: '/blueprint/BlueBeacon' },
+    footerLink: { label: 'Search clinics', href: '/clinics' },
+  },
+  node: {
+    id: 'node',
+    heading: 'Explore Blue Node',
+    body: "Explore the full picture — tap into BlueNode's interactive mind map to see how every piece of prostate cancer knowledge connects",
+    footerLink: { label: 'Explore BlueNode', href: '/bluenode' },
   },
   help: {
     id: 'help',

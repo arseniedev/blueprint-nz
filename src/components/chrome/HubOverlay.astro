@@ -1,6 +1,7 @@
 ---
 import LineIcon from '@components/ui/LineIcon.astro';
 import OverlayThumbnail from '@components/media/OverlayThumbnail.astro';
+import AccessibilityPanelOverlay from '@components/chrome/AccessibilityPanelOverlay.astro';
 
 import { overlays } from '@contents/ui/site';
 ---
@@ -29,7 +30,7 @@ import { overlays } from '@contents/ui/site';
           <p>{panel.body}</p>
 
           {panel.id === 'newsletter' && (
-            <form class="hub-form" action="/footer/news-and-events/xnewsletter" method="get">
+            <form class="hub-form" action="/newsletters" method="get">
               <label class="sr-only" for="newsletter-email">Email address</label>
               <input id="newsletter-email" name="email" type="email" placeholder="email@example.com" required />
               <button type="submit" aria-label="Subscribe">
@@ -39,15 +40,7 @@ import { overlays } from '@contents/ui/site';
           )}
 
           {panel.id === 'accessibility' && (
-            <div class="a11y-controls">
-              <p>Text size</p>
-              <div class="a11y-row">
-                <button type="button" data-font-size="sm">A</button>
-                <button type="button" data-font-size="base">A</button>
-                <button type="button" data-font-size="xl">A</button>
-              </div>
-              <button type="button" class="contrast-btn" data-contrast-toggle>Toggle high contrast</button>
-            </div>
+            <AccessibilityPanelOverlay/>
           )}
 
           {'footerLink' in panel && panel.footerLink && (
@@ -66,7 +59,14 @@ import { overlays } from '@contents/ui/site';
   const root = document.querySelector('[data-hub-root]');
   const buttons = document.querySelectorAll('[data-overlay]');
   const panels = document.querySelectorAll('[data-overlay-panel]');
+  let hasScrolledAway = false;
 
+  const scrollToTop = () => {
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth'
+    });
+  }
   const closeAll = () => {
     root?.setAttribute('hidden', '');
     panels.forEach((panel) => panel.setAttribute('hidden', ''));
@@ -90,11 +90,21 @@ import { overlays } from '@contents/ui/site';
 
   buttons.forEach((button) => {
     button.addEventListener('click', () => {
+      scrollToTop();
       const id = button.getAttribute('data-overlay');
       if (id) openPanel(id);
     });
   });
 
+  window.addEventListener('scroll', () => {
+    if (window.scrollY > 10 && !hasScrolledAway) {
+      closeAll(); // close all overlays
+      hasScrolledAway = true;
+
+    } else if (window.scrollY <= 10 && hasScrolledAway) {
+      hasScrolledAway = false; // reset if they scroll back to top
+    }
+  });
   document.querySelectorAll('[data-overlay-close]').forEach((button) => {
     button.addEventListener('click', closeAll);
   });
