@@ -91,6 +91,8 @@ cd public/
 
 git clone --recurse-submodules https://github.com/arzenikos/prostate-care-assets.git
 
+# Set submodule deinitialisation behavior for easier clean up (important when switching branches)
+git config --global submodule.recurse true
 ```
 
 ### 4. Start local development server
@@ -112,6 +114,25 @@ The site is deployed on Netlify for easy hosting and continuous deployment:
 3. Automatic redeploy on every push to the main branch.
 
 ---
+
+## Cleanup
+
+```bash
+# Switching from branch with submodule to another branch 
+git checkout --recurse-submodules other-branch
+```
+
+```bash
+# Deinit the submodule's working directory without deleting its config
+git submodule deinit -f public/assets
+
+# Now switch branches
+git checkout <other-branch-without-submodule>
+
+# When you come back and need it again:
+git checkout <branch-with-submodule>
+git submodule update --init --recursive
+```
 
 > [!WARNING]
 > ## Important Notice: Academic Integrity
