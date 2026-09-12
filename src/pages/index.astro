@@ -1,55 +1,89 @@
 ---
-import BaseLayout from '../layouts/BaseLayout.astro';
-import { SITE_DESCRIPTION, SITE_TITLE } from '../consts';
-
+import Layout from '@layouts/Layout.astro';
+import SplashScreen from '@components/chrome/SplashScreen.astro';
+import BrandMark from '@components/brand/BrandMark.astro';
+import PersonaCard from '@components/cards/PersonaCard.astro';
+import { brand, landing } from '@contents/ui/site';
 ---
 
-<BaseLayout title="Splashscreen">
-	<div class="splash" id="splash">
-		<img id="website-logo" src="src\assets\images\logo\pamana_light.png">
-		<h2>PAMANA</h2>
-		<h6>Prostate Cancer Support Website</h6>
-		<p>Loading...</p>
-	</div>
-
-
-</BaseLayout>
-
-<style>
-	.splash {
-		min-height: 100vh;
-		display: flex;
-		flex-direction: column;
-		align-items: center;
-		justify-content: center;
-		text-align: center;
-		animation: fadeIn 0.6s ease-out;
-	}
-	@keyframes fadeIn {
-		from { opacity: 0; transform: scale(0.95); }
-		to { opacity: 1; transform: scale(1); }
-	}
-	@keyframes fadeOut {
-		to { opacity: 0; }
-	}
-	.splash.leaving {
-		animation: fadeOut 0.4s ease-in forwards;
-	}
-	#website-logo {
-		height: 15vh;
-	}		
-</style>
+<Layout title="Pamana | Prostate Cancer Support Website" variant="landing" showChat={true}>
+  <SplashScreen />
+  <section class="landing">
+    <div class="landing__brand">
+      <BrandMark size="lg" />
+      <p class="te-reo">{brand.teReo}</p>
+      <h1>{landing.heading}</h1>
+      <p class="lead">{landing.instruction}</p>
+    </div>
+    <div class="landing__paths">
+      {landing.paths.map((path) => (
+        <PersonaCard
+          href={path.href}
+          title={path.title}
+          body={path.body}
+          thumbnail={path.thumbnail}
+          label={path.iconLabel}
+        />
+      ))}
+    </div>
+    
+  </section>
+</Layout>
 
 <script>
-	const splash = document.getElementById('splash');
-	const DELAY = 3000;
-	const FADE_OUT = 400;
-
-	setTimeout(() => {
-		splash?.classList.add('leaving');
-		setTimeout(() => {
-			window.location.href = '/home';
-		}, FADE_OUT);
-	}, DELAY);
+  document.querySelector('[data-open-chat]')?.addEventListener('click', () => {
+    document.querySelector('.chat-trigger')?.dispatchEvent(new Event('click'));
+  });
 </script>
 
+<style>
+  .landing {
+    max-width: var(--content-width);
+    margin: 0 auto;
+    padding: 0.5rem 1.5rem 4rem;
+    text-align: center;
+  }
+
+  .landing__brand {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.7rem;
+    margin-bottom: 2rem;
+  }
+
+  .te-reo {
+    margin: 0;
+    color: var(--color-text-subtle);
+    font-size: 0.95rem;
+  }
+
+  h1 {
+    margin: 0.3rem 0 0;
+    font-size: clamp(2rem, 4vw, 3.2rem);
+    line-height: 1.15;
+    color: var(--color-navy);
+  }
+
+  .lead {
+    margin: 0;
+    color: var(--color-text-muted);
+    font-size: clamp(2rem, 2vw, 1.2rem);
+    max-width: 50rem;
+
+  }
+
+  .landing__paths {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 1.25rem;
+    text-align: left;
+  }
+
+  
+  @media (max-width: 860px) {
+    .landing__paths {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

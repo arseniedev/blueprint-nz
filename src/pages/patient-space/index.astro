@@ -1,221 +1,37 @@
 ---
-import BaseLayout from '../../layouts/BaseLayout.astro';
-import PersonaLayout from '../../layouts/PersonaLayout.astro';
-const { title } = Astro.props;
-// import { sections } from '../data/sections.data';
+import Layout from '@layouts/Layout.astro';
+import HubHero from '@components/hero/HubHero.astro';
+import StageAccordion from '@components/accordion/StageAccordion.astro';
+import { hubs } from '@contents/ui/site';
+import { patientSections } from '@contents/ui/article-paths';
 
-import AccordionToggle from '../../components/react/AccordionToggle.tsx';
-
-// import { sections } from '../../content/Sections.data';
+const copy = hubs.patient;
+const openId = Astro.url.searchParams.get('stage') ?? '';
 ---
 
+<Layout title="Patient Support Hub | Pamana" hub="patient">
+  <HubHero
+    breadcrumbs={copy.breadcrumbs}
+    heading={copy.heading}
+    intro={copy.intro}
+    illustration={copy.illustration}
+  />
+  <section class="patient-path">
+    <h6>{copy.prompt}</h6>
+    <StageAccordion sections={patientSections} openId={openId} />
+  </section>
+</Layout>
 
-
-<BaseLayout title={title}>
-    
-  <p>breadcrumDADSDSA</p>
-  <h1>
-    Every journey is different.<br>
-    Let’s find the information you need.
-  </h1>
-  <p>To help you find the right answers without the noise, please select the clinical state or treatment stage that best describes where you or your loved one are today. We will instantly tailor the page to show only what is relevant to you.</p>
-
-  <h5>I am looking for information on...</h5>
-
-  <PersonaLayout title={title}>
-    <header class="head">     
-      <h4>Stages</h4>
-      <p>General plus stages 1–4, each expandable into a card grid.</p>
-    </header>
-   
-    <AccordionToggle client:load/>
-      <!-- <CardGrid stage="general"/>
-      <CardGrid stage="stage-1"/> -->
-      <p>
-        From persona Layout: slot - Patient
-      </p>
-  </PersonaLayout>
-
-</BaseLayout>
-
-
-<style is:global>
-
-  h4 {
-    margin: 0 0 20px;
-    font-size: clamp(30px, 7vw, 64px);
-    line-height: 0.96;
-    letter-spacing: -0.02em;
-    text-transform: uppercase;
+<style>
+  .patient-path {
+    max-width: var(--content-width);
+    margin: 2em auto;
+    padding: 0 1.5rem 4rem;
   }
 
-  h4 mark {
-    padding: 0 0.08em;
-    background: var(--orange);
-    color: #fff;
-  }
-
-  /**********************************************
-   AccordionToggle 
-  **********************************************/
-
-  /* EXPAND ALL Button */
-  .cta {                                            
-    padding: 14px 24px;
-    border: var(--border);
-    border-radius: 0;
-    background: var(--orange);
-    color: #fff;
-    font: inherit;
-    font-size: 13px;
-    font-weight: 500;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    cursor: pointer;
-    box-shadow: 5px 5px 0 var(--ink);
-    transition:
-      transform 120ms ease,
-      box-shadow 120ms ease;
-  }
-
-  .cta:hover {
-    transform: translate(-2px, -2px);
-    box-shadow: 7px 7px 0 var(--ink);
-  }
-  .cta:active {
-    transform: translate(5px, 5px);
-    box-shadow: 0 0 0 var(--ink);
-  }
-  .cta:focus-visible {
-    outline: 3px solid var(--blue);
-    outline-offset: 3px;
-  }
-
-
-  /* Individual stage panels */
-  .stage { 
-    padding: 0.3rem 1rem;
-  }
-
-  /* Panel container */
-  .box {
-    border: var(--border);
-    background: #fff;
-  }
-
-  .trigger {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 16px;
-    width: 100%;
-    padding: 16px;
-    border: 0;
-    background: none;
-    color: inherit;
-    font: inherit;
-    font-weight: 500;
-    text-align: left;
-    cursor: pointer;
-  }
-
-  .trigger:focus-visible {
-    outline: 3px solid var(--blue);
-    outline-offset: -3px;
-  }
-
-  .sign {
-    flex: none;
-    display: grid;
-    place-items: center;
-    width: 26px;
-    height: 26px;
-    border: 2px solid var(--ink);
-    font-size: 15px;
-    line-height: 1;
-  }
-
-  .trigger[aria-expanded="true"] .sign {
-    background: var(--ink);
-    color: #fff;
-  }
-
-/* Panel */
-  .panel {
-    height: 0;
-    overflow: clip;
-    transition: height var(--speed) ease;
-  }
-
-  .panel.is-open {
-    height: auto;
-  }
-
-  /* Panel Content */
-  .panel-content {
-    padding: 16px;
-    border-top: var(--border);
-    color: var(--grey);
-  }
-
-  /* .panel-content p {
-    margin: 0 0 12px;
-  }
-  .panel-content ul {
-    margin: 0;
-    padding-left: 20px;
-  }
-  .panel-content li {
-    margin-bottom: 6px;
-  }
-  .panel-content li::marker {
-    color: var(--orange);
-  } */
-
-
-
-  @media (prefers-reduced-motion: reduce) {
-    * {
-      transition-duration: 1ms !important;
-    }
+  h6 {
+    font-weight: 700;
+    font-size: small;
+    margin: 1em 0;
   }
 </style>
-
-
-<!-- ---
-import BaseLayout from '../../layouts/BaseLayout.astro';
-import AccordionSection from '../../components/astro/accordion/AccordionSection.astro';
-import CardGrid from '../../components/astro/cards/CardGrid.astro';
-import CategoryCard from '../../components/astro/cards/CategoryCard.astro';
-import { getCollection } from 'astro:content';
-import PersonaLayout from '../../layouts/PersonaLayout.astro';
-
-// group articles by their `category` field (e.g. "stage-1", "stage-2"...)
-const allArticles = await getCollection('articles', ({ data }) => data.persona === 'diagnosis');
-const { title } = Astro.props;
-
-const stages = [
-  { key: 'basics', title: 'PROSTATE CANCER BASICS, TESTS, RECURRENCE & SUPPORT' },
-  { key: 'stage-1', title: 'STAGE 1: EARLY-STAGE AND LOCALISED OPTIONS' },
-  { key: 'stage-2', title: 'STAGE 2: INTERMEDIATE-RISK PROSTATE CANCER' },
-  { key: 'stage-3', title: 'STAGE 3: LOCALLY ADVANCED PROSTATE CANCER' },
-  { key: 'stage-4', title: 'STAGE 4: LIVING WELL WITH ADVANCED PROSTATE CANCER' },
-];
----
-<BaseLayout title="Navigating Your Diagnosis">
-
-  <p>breadcrumbs</p>
-
-  <h1 class="text-hero font-bold text-neutral-900">Every journey is different.</h1>
-  <PersonaLayout title={title}>
-    <p>
-      From persona Layout: slot - Patient
-    </p>
-    
-
-
-
-    
-  </PersonaLayout>
-</BaseLayout>
- -->

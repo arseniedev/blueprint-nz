@@ -1,4 +1,4 @@
-# build output
+# Build output
 dist/
 # generated types
 .astro/
@@ -6,16 +6,24 @@ dist/
 
 # dependencies
 node_modules/
+package-lock.json
+yarn.lock
+pnpm-lock.yaml
+bun.lockb
 
-# logs
+# Logs
+logs/
+*.log
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 pnpm-debug.log*
+lerna-debug.log*
 
-
-# environment variables
+# Environment variables
 .env
+.env.*
+!.env.example
 .env.production
 
 # IDE
@@ -26,3 +34,11 @@ pnpm-debug.log*
 package-lock.json
 
 .netlify/
+functions/*.js
+functions/*.map
+
+
+# Assets
+public/assets/
+
+

@@ -1,0 +1,59 @@
+---
+import Layout from '@layouts/Layout.astro';
+import HubHero from '@components/hero/HubHero.astro';
+import CategoryCard from '@components/cards/CategoryCard.astro';
+import { hubs } from '@contents/ui/site';
+import { whanauCards } from '@contents/ui/article-paths';
+
+const copy = hubs.whanau;
+---
+
+<Layout title="Whānau Support Hub | Pamana" hub="whanau">
+  <HubHero
+    breadcrumbs={copy.breadcrumbs}
+    heading={copy.heading}
+    intro={copy.intro}
+    illustration={copy.illustration}
+    band={true}
+  />
+  <section class="whanau">
+    <h2>{copy.sectionTitle}</h2>
+    <div class="whanau__grid">
+      {whanauCards.map((card) => (
+        <CategoryCard 
+          href=`/family-support/${card.href}`
+          label={card.label} 
+          iconLabel={card.iconLabel} 
+        />
+      ))}
+    </div>
+  </section>
+</Layout>
+
+<style>
+  .whanau {
+    max-width: var(--content-width);
+    margin: 0 auto;
+    padding: 0 1.5rem 4rem;
+  }
+
+  h2 {
+    margin: 0 0 1.2rem;
+    font-family: var(--font-serif);
+    font-style: italic;
+    font-weight: 500;
+    color: var(--color-accent-serif);
+  }
+
+  .whanau__grid {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 1rem;
+  }
+
+  @media (max-width: 900px) {
+    .whanau__grid {
+      grid-template-columns: 1fr 1fr;
+    }
+  }
+</style>
