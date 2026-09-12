@@ -10,7 +10,8 @@
     "preview": "astro preview",
     "astro": "astro",
     "initasset": "cp -r src/assets/ public/assets/",
-    "close": "rm -rf node_modules && rm -rf package-lock.json"
+    "close": "rm -rf node_modules && rm -rf package-lock.json",
+    "test:links": "start-server-and-test dev http://localhost:4321 \"linkinator http://localhost:4321 --recurse\""
   },
   "dependencies": {
     "@astrojs/netlify": "^6.3.4",
@@ -38,7 +39,9 @@
     "@types/blobshape": "^1.0.3",
     "@types/node": "^24.0.1",
     "lightningcss": "^1.30.1",
+    "linkinator": "^8.1.0",
     "netlify-cli": "^22.1.3",
-    "sass-embedded": "^1.89.2"
+    "sass-embedded": "^1.89.2",
+    "start-server-and-test": "^3.0.12"
   }
 }

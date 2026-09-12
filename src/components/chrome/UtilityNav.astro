@@ -1,11 +1,12 @@
 ---
 import LineIcon from '@components/ui/LineIcon.astro';
+import AccessibilityPanelOverlay from '@components/chrome/AccessibilityPanelOverlay.astro';
 
 const items = [
   { id: 'newsletter', label: 'Newsletter', icon: 'mail' as const },
   { id: 'clinics', label: 'Find a clinic', icon: 'pin' as const },
   { id: 'node', label: 'Node', icon: 'node' as const },
-  { id: 'accessibility', label: 'Accessibility', icon: 'accessibility' as const },
+  // { id: 'accessibility', label: 'Accessibility', icon: 'accessibility' as const },
 ];
 ---
 
@@ -22,6 +23,8 @@ const items = [
       <LineIcon name={item.icon} />
     </button>
   ))}
+
+  <AccessibilityPanelOverlay/>
 </nav>
 
 <style>
@@ -71,7 +74,5 @@ const items = [
   .utility-btn.is-active::after {
     opacity: 1;
   }
-
-
 
 </style>

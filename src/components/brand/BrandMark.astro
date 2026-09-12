@@ -1,5 +1,5 @@
 ---
-// import pamanaLogo from '/assets/images/logo/pamana-logo.png';
+import { resolveAsset } from '@utils/resolveAssets';
 
 interface Props {
   href?: string;
@@ -11,7 +11,7 @@ const { href = '/', size = 'md', alt = 'Prostate Care logo' } = Astro.props;
 ---
 
 <a href={href} class=`brand-mark brand-mark--${size}` aria-label="Prostate Care home">
-  <img src="https://github.com/user-attachments/assets/53114be2-7b6d-47f0-92a7-af3985a028d0" alt={alt} width="88" height="88" />
+  <img src={resolveAsset("logo/pamana-logo-blue.png")} alt={alt} width="88" height="88" />
 </a>
 
 <style>

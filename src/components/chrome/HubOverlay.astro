@@ -1,7 +1,6 @@
 ---
 import LineIcon from '@components/ui/LineIcon.astro';
 import OverlayThumbnail from '@components/media/OverlayThumbnail.astro';
-import AccessibilityPanelOverlay from '@components/chrome/AccessibilityPanelOverlay.astro';
 
 import { overlays } from '@contents/ui/site';
 ---
@@ -37,10 +36,6 @@ import { overlays } from '@contents/ui/site';
                 <LineIcon name="send" />
               </button>
             </form>
-          )}
-
-          {panel.id === 'accessibility' && (
-            <AccessibilityPanelOverlay/>
           )}
 
           {'footerLink' in panel && panel.footerLink && (
